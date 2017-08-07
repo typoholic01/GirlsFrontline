@@ -24,60 +24,50 @@
         var rows = $("#myTable2 tbody tr");
 
         for (var i = 1; i <= rows.length; i++) {
-          humans[i-1] = $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(6)").text();
-          bullets[i-1] = $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(7)").text();
-          foods[i-1] = $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(8)").text();
-          parts[i-1] = $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(9)").text();
+          humans.push($("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(6)").text());
+          bullets.push($("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(7)").text());
+          foods.push($("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(8)").text());
+          parts.push($("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(9)").text());
         }
       }
 
-      //보통 데이터
-      function btnNormalFocus() {
-        getData();
-
-        for (var i = 0; i < humans.length; i++) {
-          //test
-          // console.log(WatingTimes[i]);
-
-          //합계 저장
-          sums[i] = Number(humans[i])+Number(bullets[i])+Number(foods[i])+Number(parts[i]);
-          console.log("합계: " + sums[i]);
-
-          //평균 저장
-          avarages[i] = Math.round(sums[i]*180/WatingTimes[i]);
-          console.log("평균: " + avarages[i]);
-
-          //출력
-          $("#myTable2 > tbody > tr:nth-child("+(i+1)+") > td:nth-child(10)").text(sums[i]);
-          $("#myTable2 > tbody > tr:nth-child("+(i+1)+") > td:nth-child(11)").text(avarages[i]);
-        }
-      }
-
-      //인력 중심 데이터
       function btnHumanFocus() {
         getData();
-        for (var i = 0; i < humans.length; i++) {
+        for (var i = 0; i <= humans.length; i++) {
           //합계 저장
-          sums[i] = Number(humans[i])*2+Number(bullets[i])+Number(foods[i])+Number(parts[i]);
-          console.log("합계: " + sums[i]);
+          var num = Number(humans[i])*2+Number(bullets[i])+Number(foods[i])+Number(parts[i]);
+          sums.push(num);
 
           //평균 저장
-          avarages[i] = Math.round(sums[i]*180/WatingTimes[i]);
-          console.log("평균: " + avarages[i]);
+          avarages.push(Math.round(num*180/WatingTimes[i]));
 
           //출력
-          $("#myTable2 > tbody > tr:nth-child("+(i+1)+") > td:nth-child(10)").text(sums[i]);
-          $("#myTable2 > tbody > tr:nth-child("+(i+1)+") > td:nth-child(11)").text(avarages[i]);
+          var rows = $("#myTable2 tbody tr");
+          for (var j = 1; j <= rows.length; j++) {
+            $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(10)").text(sums[i-1]);
+            $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(11)").text(avarages[i-1]);
+          }
         }
       }
-      function sumAvgEmpty() {
-        var rows = $("#myTable2 tbody tr");
-        for (var i = 1; i <= rows.length; i++) {
-          $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(10)").empty();
-          $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(11)").empty();
-        }
-      }
+      function btnNormalFocus() {
+        getData();
+        
+        for (var i = 0; i <= humans.length; i++) {
+          //합계 저장
+          var num = Number(humans[i])+Number(bullets[i])+Number(foods[i])+Number(parts[i]);
+          sums.push(num);
 
+          //평균 저장
+          avarages.push(Math.round(num*180/WatingTimes[i]));
+
+          //출력
+          var rows = $("#myTable2 tbody tr");
+          for (var j = 1; j <= rows.length; j++) {
+            $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(10)").text(sums[i-1]);
+            $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(11)").text(avarages[i-1]);
+          }
+        }
+      }
     </script>
     <style media="screen">
       .btnGroup {
@@ -89,7 +79,7 @@
     <div class="btnGroup">
       <button type="button" name="button" onclick="btnNormalFocus()">보통</button>
       <button type="button" name="button" onclick="btnHumanFocus()">인력 중심</button>
-      <button type="button" name="button" onclick="sumAvgEmpty()">탄약</button>
+      <button type="button" name="button">탄약</button>
       <button type="button" name="button">식량</button>
       <button type="button" name="button">부품</button>
     </div>
