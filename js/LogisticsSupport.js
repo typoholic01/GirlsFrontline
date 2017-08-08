@@ -39,18 +39,23 @@ function common(choice) {
     //합계 저장
     switch (choice) {
       case "normal":
+        $("#myTable2 > caption > h1").text("보통");
         sums[i] = Number(humans[i])+Number(bullets[i])+Number(foods[i])+Number(parts[i])*3;
         break;
       case "human":
+        $("#myTable2 > caption > h1").text("인력 중심");
         sums[i] = Number(humans[i])*2+Number(bullets[i])+Number(foods[i])+Number(parts[i])*3;
         break;
       case "bullet":
+        $("#myTable2 > caption > h1").text("탄환 중심");
         sums[i] = Number(humans[i])+Number(bullets[i])*2+Number(foods[i])+Number(parts[i])*3;
         break;
       case "food":
+        $("#myTable2 > caption > h1").text("식량 중심");
         sums[i] = Number(humans[i])+Number(bullets[i])+Number(foods[i])*2+Number(parts[i])*3;
         break;
       case "part":
+        $("#myTable2 > caption > h1").text("부품 중심");
         sums[i] = Number(humans[i])+Number(bullets[i])+Number(foods[i])+Number(parts[i])*6;
         break;
       default :

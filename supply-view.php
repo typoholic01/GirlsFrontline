@@ -24,11 +24,12 @@
     <div class="btnGroup">
       <button type="button" name="button" onclick="btnNormalFocus()">보통</button>
       <button type="button" name="button" onclick="btnHumanFocus()">인력 중심</button>
-      <button type="button" name="button" onclick="btnBulletFocus()">탄약</button>
-      <button type="button" name="button" onclick="btnFoodFocus()">식량</button>
-      <button type="button" name="button" onclick="btnPartFocus()">부품</button>
+      <button type="button" name="button" onclick="btnBulletFocus()">탄약 중심</button>
+      <button type="button" name="button" onclick="btnFoodFocus()">식량 중심</button>
+      <button type="button" name="button" onclick="btnPartFocus()">부품 중심</button>
     </div>
     <table id="myTable2" class="number-table">
+      <caption><h1>보통</h1></caption>
       <thead>
         <tr>
           <th onclick="sortTable(0)">지역</th>
