@@ -62,7 +62,25 @@
         <td data-column="부품"><?php echo $Parts[$i]; ?></td>
         <td data-column="총합"><?php echo $Total[$i]; ?></td>
         <td data-column="효율"><?php echo $Efficiency[$i]; ?></td>
-        <td data-column="획득 아이템"><?php echo $ItemCodes[$i]; ?></td>
+        <td data-column="획득 아이템">
+          <?php
+          if ( $QuickRepair[$i] == 1) {
+           echo "쾌속수복<br/>";
+          }
+          if ($QuickMarionette[$i] == 1) {
+           echo "쾌속제조<br/>";
+          }
+          if ($Marionette[$i] == 1) {
+           echo "인형제조<br/>";
+          }
+          if ($Arms[$i] == 1) {
+           echo "장비제조<br/>";
+          }
+          if ($Coin[$i] == 1) {
+           echo "구매토큰<br/>";
+          }
+          ?>
+        </td>
       </tr>
       <?php } ?>
     </tbody>

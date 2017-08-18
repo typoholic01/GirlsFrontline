@@ -11,7 +11,13 @@ $Humans = [];
 $Bullets = [];
 $Foods = [];
 $Parts = [];
-$ItemCodes = [];
+
+////QuickRepair, QuickMarionette, Marionette, Arms, Coin
+$QuickRepair = [];
+$QuickMarionette = [];
+$Marionette = [];
+$Arms = [];
+$Coin = [];
 
 $supplymodel = new SupplyModel();
 
@@ -38,7 +44,40 @@ foreach ($supplyArr as $key => $value)
 
   $Total[] = $Totalval;
   $Efficiency[] = round($Totalval*180/$value["WatingTime"]);
-  $ItemCodes[] = $value["ItemCode"];
+
+  //아이템 이름을 받아온다
+  $ItemNames = $supplymodel->getItemName($value["ItemCode"]);
+
+  foreach ($ItemNames as $key => $value) {
+    //QuickRepair, QuickMarionette, Marionette, Arms, Coin
+
+    $QuickRepair[] = $value["QuickRepair"];
+    $QuickMarionette[] = $value["QuickMarionette"];
+    $Marionette[] = $value["Marionette"];
+    $Arms[] = $value["Arms"];
+    $Coin[] = $value["Coin"];
+    // switch ($key) {
+    //   case 'QuickRepair':
+    //   $QuickRepair[] = $value["QuickRepair"];
+    //     break;
+    //   case 'QuickMarionette':
+    //   $QuickMarionette[] = $value["QuickMarionette"];
+    //     break;
+    //   case 'Marionette':
+    //   $Marionette[] = $value["Marionette"];
+    //     break;
+    //   case 'Arms':
+    //   $Arms[] = $value["Arms"];
+    //     break;
+    //   case 'Coin':
+    //   $Coin[] = $value["Coin"];
+    //     break;
+    //   default:
+    //     # code...
+    //     break;
+    // }
+
+  }
 
 
 }
