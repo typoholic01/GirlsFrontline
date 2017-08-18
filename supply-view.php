@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>군수지원표</title>
-    <link rel="stylesheet" href="./css/responsible-table.css">
-    <link rel="stylesheet" href="./css/table.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/btn.css">
+    <link rel="stylesheet" href="./css/myTable.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./js/SortTable.js" type="text/javascript"></script>
     <script src="./js/LogisticsSupport.js" type="text/javascript"></script>
@@ -28,10 +30,10 @@
       <button type="button" name="button" onclick="btnFoodFocus()">식량 중심</button>
       <button type="button" name="button" onclick="btnPartFocus()">부품 중심</button>
     </div>
-    <table id="myTable2" class="number-table">
+    <table id="myTable2" class="table table-hover">
       <caption><h1>보통</h1></caption>
       <thead>
-        <tr>
+        <tr class="info">
           <th onclick="sortTable(0)">지역</th>
           <th onclick="sortTable(1)">맵</th>
           <th onclick="sortTable(2)">리더Lv</th>
@@ -65,19 +67,19 @@
         <td data-column="획득 아이템">
           <?php
           if ( $QuickRepair[$i] == 1) {
-           echo "쾌속수복<br/>";
+           echo '<button type="button" class="btn btn-success btn-xs forestgreen">쾌속수복</button><br/>';
           }
           if ($QuickMarionette[$i] == 1) {
-           echo "쾌속제조<br/>";
+           echo '<button type="button" class="btn btn-success btn-xs">쾌속제조</button><br/>';
           }
           if ($Marionette[$i] == 1) {
-           echo "인형제조<br/>";
+           echo '<button type="button" class="btn btn-default btn-xs">인형제조</button><br/>';
           }
           if ($Arms[$i] == 1) {
-           echo "장비제조<br/>";
+           echo '<button type="button" class="btn btn-primary btn-xs">장비제조</button><br/>';
           }
           if ($Coin[$i] == 1) {
-           echo "구매토큰<br/>";
+           echo '<button type="button" class="btn btn-warning btn-xs">구매토큰</button><br/>';
           }
           ?>
         </td>
