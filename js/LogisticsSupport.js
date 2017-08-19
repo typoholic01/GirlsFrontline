@@ -20,12 +20,12 @@ function getData() {
     var time = $("#myTable2 > tbody > tr:nth-child("+i+") > td:nth-child(5)").text();
     time = time.trim();
     var hour = time.substring(0,2);
-    console.log("시간: " + hour);
+    // console.log("시간: " + hour);
 
     var minute = time.substring(3,5);
-    console.log("분: " + minute);
+    // console.log("분: " + minute);
     WatingTimes[i-1] = hour * 60 + minute * 1;
-    console.log("대기시간: " + WatingTimes[i-1]);
+    // console.log("대기시간: " + WatingTimes[i-1]);
   }
 }
 

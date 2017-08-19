@@ -129,7 +129,6 @@ function stringSortTable(str) {
   for (var i = 1; i < (rows.length - 1); i++) {
     var move = 1;
     if (rows[i].innerHTML.indexOf(str) != -1) {
-      console.log(i + str);
       rows[i].parentNode.insertBefore(rows[i], rows[move]);
       move++;
     }
