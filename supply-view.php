@@ -15,6 +15,56 @@
       $(document).ready(function () {
         common("normal");
       })
+      //보통
+      function btnNormalFocus() {
+        common("normal");
+        descSortTable(10);
+      }
+      //인력 중심
+      function btnHumanFocus() {
+        common("human");
+        descSortTable(10);
+      }
+      //탄환 중심
+      function btnBulletFocus() {
+        common("bullet");
+        descSortTable(10);
+      }
+      //식량 중심
+      function btnFoodFocus() {
+        common("food");
+        descSortTable(10);
+      }
+      //부품 중심
+      function btnPartFocus() {
+        common("part");
+        descSortTable(10);
+      }
+      //쾌속수복
+      function btnQuickRepairFocus() {
+        stringSortTable('쾌속수복');
+      }
+      //쾌속제조
+      function btnQuickMarionetteFocus() {
+        stringSortTable('쾌속제조');
+      }
+      //인형제조
+      function btnMarionetteFocus() {
+        stringSortTable('인형제조');
+      }
+      //장비제조
+      function btnArmsFocus() {
+        stringSortTable('장비제조');
+      }
+      //구매토큰
+      function btnCoinFocus() {
+        stringSortTable('구매토큰');
+      }
+
+      function changeText( that) {
+        that.innerHTML = "인력X2";
+      }
+
     </script>
     <style media="screen">
       .btnGroup {
@@ -23,12 +73,23 @@
     </style>
   </head>
   <body>
-    <div class="btnGroup">
-      <button type="button" name="button" onclick="btnNormalFocus()">보통</button>
-      <button type="button" name="button" onclick="btnHumanFocus()">인력 중심</button>
-      <button type="button" name="button" onclick="btnBulletFocus()">탄약 중심</button>
-      <button type="button" name="button" onclick="btnFoodFocus()">식량 중심</button>
-      <button type="button" name="button" onclick="btnPartFocus()">부품 중심</button>
+    <div align="center">
+      <h1>소녀전선 군수조합표</h1>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" name="button" onclick="btnNormalFocus()">보통</button>
+        <button type="button" class="btn btn-primary" name="button" onclick="btnHumanFocus()">인력X2</button>
+        <button type="button" class="btn btn-primary" name="button" onclick="btnBulletFocus()">탄약X2</button>
+        <button type="button" class="btn btn-primary" name="button" onclick="btnFoodFocus()">식량X2</button>
+        <button type="button" class="btn btn-primary" name="button" onclick="btnPartFocus()">부품X6</button>
+      </div>
+      <p style="font-size:8px">부품은 기본적으로 X3 되어있습니다</p> 
+      <div class="btn-group">
+        <button type="button" class="btn btn-success forestgreen" name="button" onclick="btnQuickRepairFocus()">쾌속수복</button>
+        <button type="button" class="btn btn-success" name="button" onclick="btnQuickMarionetteFocus()">쾌속제조</button>
+        <button type="button" class="btn btn-default" name="button" onclick="btnMarionetteFocus()">인형제조</button>
+        <button type="button" class="btn btn-primary" name="button" onclick="btnArmsFocus()">장비제조</button>
+        <button type="button" class="btn btn-warning" name="button" onclick="btnCoinFocus()">구매토큰</button>
+      </div>
     </div>
     <table id="myTable2" class="table table-hover">
       <caption><h1>보통</h1></caption>
@@ -67,19 +128,19 @@
         <td data-column="획득 아이템">
           <?php
           if ( $QuickRepair[$i] == 1) {
-           echo '<button type="button" class="btn btn-success btn-xs forestgreen">쾌속수복</button><br/>';
+           echo '<button type="button" class="btn btn-success btn-xs forestgreen" onclick="btnQuickRepairFocus()">쾌속수복</button><br/>';
           }
           if ($QuickMarionette[$i] == 1) {
-           echo '<button type="button" class="btn btn-success btn-xs">쾌속제조</button><br/>';
+           echo '<button type="button" class="btn btn-success btn-xs" onclick="btnQuickMarionetteFocus()">쾌속제조</button><br/>';
           }
           if ($Marionette[$i] == 1) {
-           echo '<button type="button" class="btn btn-default btn-xs">인형제조</button><br/>';
+           echo '<button type="button" class="btn btn-default btn-xs" onclick="btnMarionetteFocus()">인형제조</button><br/>';
           }
           if ($Arms[$i] == 1) {
-           echo '<button type="button" class="btn btn-primary btn-xs">장비제조</button><br/>';
+           echo '<button type="button" class="btn btn-primary btn-xs" onclick="btnArmsFocus()">장비제조</button><br/>';
           }
           if ($Coin[$i] == 1) {
-           echo '<button type="button" class="btn btn-warning btn-xs">구매토큰</button><br/>';
+           echo '<button type="button" class="btn btn-warning btn-xs" onclick="btnCoinFocus()">구매토큰</button><br/>';
           }
           ?>
         </td>

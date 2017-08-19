@@ -71,24 +71,3 @@ function common(choice) {
     $("#myTable2 > tbody > tr:nth-child("+(i+1)+") > td:nth-child(11)").text(avarages[i]);
   }
 }
-
-//보통
-function btnNormalFocus() {
-  common("normal");
-}
-//인력 중심
-function btnHumanFocus() {
-  common("human");
-}
-//탄환 중심
-function btnBulletFocus() {
-  common("bullet");
-}
-//식량 중심
-function btnFoodFocus() {
-  common("food");
-}
-//부품 중심
-function btnPartFocus() {
-  common("part");
-}
